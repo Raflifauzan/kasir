@@ -17,6 +17,7 @@
                                 <h5 class="card-title">{{ $menu->nama }}</h5>
                                 <p class="card-text">Rp. {{ number_format($menu->harga, 2, ',', '.') }}</p>
                                 <p class="card-text">{{ $menu->category->nama }}</p>
+<<<<<<< HEAD
                                 <p class="badge badge-{{ $menu->status == 'ready' ? 'success' : 'danger' }}">{{ $menu->status }}</p>
                                 <br>
                                 <a href="/menus/{{ $menu->id }}/edit" class="btn btn-primary">Edit</a>
@@ -25,6 +26,17 @@
                                     @csrf
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('kamu yakin?')">Delete</button>
 
+=======
+                                <p class="badge badge-{{ $menu->status == 'ready' ? 'success' : 'danger' }}">
+                                    {{ $menu->status }}</p>
+                                <br>
+                                <a href="/menus/{{ $menu->id }}/edit" class="btn btn-primary">Edit</a>
+                                <form action="/menus/{{ $menu->id }}" method="POST" class="d-inline">
+                                    @method('Delete')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Kamu yakin?')">Hapus</button>
+>>>>>>> 66ad98c4f258b2051f5e853e209b3eea2eb0840b
                                 </form>
                             </div>
                         </div>

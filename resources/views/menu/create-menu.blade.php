@@ -7,7 +7,12 @@
             @csrf
             <div class="form-group">
                 <label for="nama">Nama Menu</label>
+<<<<<<< HEAD
                 <input type="text" class="form-control @error('nama')is-invalid @enderror" name="nama" id="nama" value="{{ old('nama') }}">
+=======
+                <input type="text" class="form-control @error('nama')is-invalid @enderror" name="nama" id="nama"
+                    value="{{ old('nama') }}">
+>>>>>>> 66ad98c4f258b2051f5e853e209b3eea2eb0840b
                 @error('nama')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -16,8 +21,13 @@
             </div>
             <div class="form-group">
                 <label for="harga">Harga Menu</label>
+<<<<<<< HEAD
                 <input type="number" class="form-control @error('harga')is-invalid @enderror" name="harga"
                     id="harga" value="{{ old('harga') }}">
+=======
+                <input type="number" class="form-control @error('harga')is-invalid @enderror" name="harga" id="harga"
+                    value="{{ old('harga') }}">
+>>>>>>> 66ad98c4f258b2051f5e853e209b3eea2eb0840b
                 @error('harga')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -30,7 +40,12 @@
                     <option value="">Kategori Menu...</option>
 
                     @foreach ($categories as $category)
+<<<<<<< HEAD
                         <option value="{{ $category->id }}" {{ old('kategori') == $category->id ? 'selected' : ''}} >{{ $category->nama }}></option>
+=======
+                        <option value="{{ $category->id }}" {{ old('kategori') == $category->id ? 'selected' : '' }}>
+                            {{ $category->nama }}</option>
+>>>>>>> 66ad98c4f258b2051f5e853e209b3eea2eb0840b
                     @endforeach
                 </select>
                 @error('kategori')

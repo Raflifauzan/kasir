@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
@@ -81,10 +82,13 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        $title = 'Edit Menu';
-        $menu = $menu;
-        $categories = Category::all();
-        return view('menu.edit-menu', compact('title', 'menu', 'categories'));
+
+        return view('menu.edit-menu', [
+            'title' => 'Edit Menu',
+            'categories' => Category::all(),
+            'menu' => $menu
+        ]);
+
     }
 
     /**
@@ -108,7 +112,6 @@ class MenuController extends Controller
     public function destroy(Menu $menu)
     {
         Menu::destroy($menu->id);
-
         return redirect()->to('/menus')->with('success', 'Menu berhasil dihapus');
     }
 }
