@@ -15,10 +15,17 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $menu->nama }}</h5>
-                                <p class="card-text">{{ $menu->harga }}</p>
+                                <p class="card-text">Rp. {{ number_format($menu->harga, 2, ',', '.') }}</p>
                                 <p class="card-text">{{ $menu->category->nama }}</p>
-                                <p class="card-text">{{ $menu->status }}</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <p class="badge badge-{{ $menu->status == 'ready' ? 'success' : 'danger' }}">{{ $menu->status }}</p>
+                                <br>
+                                <a href="/menus/{{ $menu->id }}/edit" class="btn btn-primary">Edit</a>
+                                <form action="/menus/{{ $menu->id }}" method="POST" class="d-inline">
+                                @method('Delete')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('kamu yakin?')">Delete</button>
+
+                                </form>
                             </div>
                         </div>
                     </div>
